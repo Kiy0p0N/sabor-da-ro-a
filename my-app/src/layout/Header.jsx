@@ -40,8 +40,8 @@ function Header () {
                 <div className="w-full flex items-center md:w-5/6">
                     {/* Logo */}
                     <div className="flex-1/2">
-                        <div className='w-fit cursor-pointer hover:opacity-70 duration-500' onClick={() => navigate("/")}>
-                            <img src={Logo} alt="Logo" className='w-24' />
+                        <div className='w-fit cursor-pointer hover:opacity-70 duration-500' onClick={() => {navigate("/"); closeMenu()}}>
+                            <img src={Logo} alt="Logo" className='w-20 md:w-24' />
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@ function Header () {
                             <p
                                 key={link.id}
                                 onClick={() => navigate(link.path)}
-                                className='cursor-pointer hover:text-blue-400 duration-500 transition-colors'
+                                className='cursor-pointer hover:text-orange-500 duration-500 transition-colors'
                             >
                                 {link.text}
                             </p>
@@ -80,7 +80,7 @@ function Header () {
                                 navigate(link.path);  // navega para o link
                                 closeMenu();          // fecha o menu com animação
                             }}
-                            className="p-2 border-b border-black/10 cursor-pointer hover:text-blue-400 duration-500 transition-colors"
+                            className="p-3 border-b border-black/10 cursor-pointer hover:text-blue-400 duration-500 transition-colors"
                         >
                             <p>{link.text}</p>
                         </div>

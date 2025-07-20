@@ -36,7 +36,7 @@ function Carousel({ items }) {
             {/* Texto sobre a imagem */}
             <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center p-4">
                 <div className="bg-white bg-opacity-80 text-black p-4 rounded-md max-w-lg shadow-md text-center">
-                    <p className="text-lg font-semibold">{items[currentIndex].text}</p>
+                    <p className="text-lg font-semibold md:text-2xl">{items[currentIndex].text}</p>
                 </div>
             </div>
         </div>

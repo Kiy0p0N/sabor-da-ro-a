@@ -19,7 +19,7 @@ function Footer () {
                                 <a 
                                     href="https://www.instagram.com/emporio_saborroca/"
                                     target='__blank'
-                                    className='flex items-center gap-1 hover:text-blue-400 duration-500 transition-colors'
+                                    className='flex items-center gap-1 hover:text-orange-500 duration-500 transition-colors'
                                 >
                                     <InstagramIcon fontSize='small' />
                                     emporio_saborroca
@@ -30,7 +30,7 @@ function Footer () {
                                 <a 
                                     href=""
                                     target='__blank'
-                                    className='flex items-center gap-1 hover:text-blue-400 duration-500 transition-colors'
+                                    className='flex items-center gap-1 hover:text-orange-500 duration-500 transition-colors'
                                 >
                                     <WhatsAppIcon fontSize='small' />
                                     (99) 99999-9999
@@ -50,7 +50,7 @@ function Footer () {
                                 <a 
                                     href="https://maps.app.goo.gl/X5b7rTfC8hNkh5ij7"
                                     target="__blank"
-                                    className='flex gap-1 hover:text-blue-400 duration-500 transition-colors'
+                                    className='flex gap-1 hover:text-orange-500 duration-500 transition-colors'
                                 >
                                     <LocationOnIcon fontSize='small' />
                                     Cantagalo, São Bento do Sapucaí - SP, 12490-000

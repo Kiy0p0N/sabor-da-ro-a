@@ -30,7 +30,7 @@ function Home () {
                             </span>
                         </h1>
 
-                        <div className='w-full h-[1px] bg-black'></div>
+                        <div className='w-full h-[1px] bg-black' />
 
                         <div className='mt-8 flex flex-col gap-4'>
                             {apresentationText.map((paragraph) => (
@@ -50,7 +50,7 @@ function Home () {
                     <div className='col-start-2 col-end-3 row-start-2 row-end-3'>
                         <Button
                             onClick={() => navigate('/cardapio')}
-                            text='SAIBA MAIS ...'
+                            text='SAIBA MAIS'
                         />
                     </div>
                 </div>
