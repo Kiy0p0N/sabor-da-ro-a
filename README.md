@@ -8,9 +8,8 @@ Este projeto tem como objetivo fornecer um cardápio digital acessível via QR C
 
 * Exibição do cardápio de comidas e bebidas
 * Layout responsivo (prioridade para mobile)
-* Leve e rápido para acesso em redes móveis
-* QR Code para acesso direto ao site
 * Design rústico, elegante e acolhedor
+* Aplicação de filtros para selecionar itens
 
 ## Status
 
@@ -26,7 +25,11 @@ Em desenvolvimento. Interface e funcionalidades principais em andamento.
 
 ## Imagem de Apresentação
 
-![Preview do Cardápio](./image/image.png)
+#### Tela inicial
+![Preview da página inicial](./image/home.png)
+
+#### Cardápio
+![Preview do cardápio](./image/menu.png)
 
 ## Como Rodar Localmente
 

@@ -3,12 +3,14 @@ import SortIcon from '@mui/icons-material/Sort';
 import Slider from '@mui/material/Slider';
 import CloseIcon from '@mui/icons-material/Close';
 import { optionsMenu } from '../utils/menu-options';
+import SelectedItem from './SelectedItem';
 
 function MenuOptions () {
     const [filterOpen, setFilterOpen] = useState(false);        // controla a animação (aberto/fechado)
     const [filterVisible, setFilterVisible] = useState(false);  // controla se o filtro está no DOM
     const [selectedType, setSelectedType] = useState('todos');
     const [priceRange, setPriceRange] = useState([0, 100]);     // intervalo inicial
+    const [selectedItem, setSelectedItem] = useState(null);     // item selecionado
 
     // Lista de tipos únicos para o filtro
     const types = ['todos', ...new Set(optionsMenu.map(item => item.type))];
@@ -25,8 +27,8 @@ function MenuOptions () {
     };
 
     const prices = optionsMenu.map(item => parseFloat(item.price));
-    const minPrice = Math.min(...prices) -1;
-    const maxPrice = Math.max(...prices) +1;
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
 
     // Filtra os produtos por tipo e faixa de preço
     const filteredItems = optionsMenu.filter((item) => {
@@ -114,32 +116,42 @@ function MenuOptions () {
 
             {/* Cardápio */}
             <div className='flex flex-col gap-2 mt-1 md:grid md:grid-cols-2 md:gap-10 lg:grid-cols-4 2xl:grid-cols-5'>
+
+                {/* Lista todos os itens */}
                 {filteredItems.map((option) => (
-                <div
-                    key={option.id}
-                    className="flex items-center gap-4 bg-white rounded-xl shadow-md p-3 hover:opacity-50 duration-500 md:flex-col md:p-10 cursor-pointer"
-                >
-                    {/* Imagem */}
-                    <div className="w-20 h-20 flex-shrink-0">
-                        <img
+                    <div
+                        key={option.id}
+                        className="flex items-center gap-4 bg-white rounded-xl shadow-md p-3 hover:opacity-50 duration-500 md:flex-col md:p-10 cursor-pointer"
+                        onClick={() => setSelectedItem(option)}
+                    >
+                        {/* Imagem */}
+                        <div className="w-20 h-20 flex-shrink-0">
+                            <img
                             src={option.image}
                             alt={option.name}
                             className="w-full h-full object-cover rounded-lg"
-                        />
-                    </div>
+                            />
+                        </div>
 
-                    {/* Conteúdo */}
-                    <div className="flex flex-col justify-center md:items-center">
-                        <span className="text-lg text-center font-semibold text-gray-800 lg:text-xl">
+                        {/* Conteúdo */}
+                        <div className="flex flex-col justify-center md:items-center w-full">
+                            <span className="text-lg font-semibold text-gray-800 lg:text-xl md:text-center truncate whitespace-nowrap overflow-hidden max-w-[160px] w-full">
                             {option.name}
-                        </span>
-                        <span className="text-sm text-gray-600 mt-1 lg:text-lg">
+                            </span>
+                            <span className="text-sm text-gray-600 mt-1 lg:text-lg">
                             R$ {option.price}
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
                 ))}
             </div>
+
+            {/* Informações adicionais do item selecionado */}
+            <SelectedItem
+                item={selectedItem}
+                onClose={() => setSelectedItem(null)}
+            />
+
         </div>
     );
 }
