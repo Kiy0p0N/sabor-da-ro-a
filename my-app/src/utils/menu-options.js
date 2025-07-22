@@ -4,32 +4,42 @@ import heineken from '../assets/images/menu options/heineken.jpeg';
 import coca from '../assets/images/menu options/coca-cola.jpeg';
 
 export const optionsMenu = [
-    {
-        id: 1,
-        name: 'Pastel de queijo',
-        price: '08,00',
-        type: 'pastel',
-        image: pQueijo,
-    },
-    {
-        id: 2,
-        name: 'Pastel de carne',
-        price: '08,00',
-        type: 'pastel',
-        image: pCarne,
-    },
-    {
-        id: 3,
-        name: 'Heineken',
-        price: '10,00',
-        type: 'bebida',
-        image: heineken,
-    },
-    {
-        id: 4,
-        name: 'Coca-cola',
-        price: '06,00',
-        type: 'bebida',
-        image: coca,
-    },
+  {
+    id: 1,
+    name: 'Pastel de queijo',
+    price: 8.00,
+    type: 'pastel',
+    image: pQueijo,
+    description: 'Pastel crocante recheado com queijo muçarela.',
+    ingredients: ['Queijo muçarela', 'Massa de pastel', 'Óleo para fritura']
+  },
+  {
+    id: 2,
+    name: 'Pastel de carne',
+    price: 8.00,
+    type: 'pastel',
+    image: pCarne,
+    description: 'Pastel crocante recheado com carne moída temperada.',
+    ingredients: ['Carne moída', 'Cebola', 'Temperos', 'Massa de pastel']
+  },
+  {
+    id: 3,
+    name: 'Heineken',
+    price: 10.00,
+    type: 'bebida',
+    image: heineken,
+    description: 'Cerveja Heineken long neck, puro malte.',
+    volume: '330ml',
+    alcoholic: true
+  },
+  {
+    id: 4,
+    name: 'Coca-cola',
+    price: 6.50,
+    type: 'bebida',
+    image: coca,
+    description: 'Refrigerante Coca-cola gelado.',
+    volume: '350ml',
+    alcoholic: false
+  }
 ];

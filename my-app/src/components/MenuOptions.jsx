@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import { useEffect, useState } from 'react';
 import SortIcon from '@mui/icons-material/Sort';
 import Slider from '@mui/material/Slider';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,7 +9,6 @@ function MenuOptions () {
     const [filterOpen, setFilterOpen] = useState(false);        // controla a animação (aberto/fechado)
     const [filterVisible, setFilterVisible] = useState(false);  // controla se o filtro está no DOM
     const [selectedType, setSelectedType] = useState('todos');
-    const [priceRange, setPriceRange] = useState([0, 100]);     // intervalo inicial
     const [selectedItem, setSelectedItem] = useState(null);     // item selecionado
 
     // Lista de tipos únicos para o filtro
@@ -27,8 +26,15 @@ function MenuOptions () {
     };
 
     const prices = optionsMenu.map(item => parseFloat(item.price));
-    const minPrice = Math.min(...prices);
-    const maxPrice = Math.max(...prices);
+    const minPrice = Math.floor(Math.min(...prices));
+    const maxPrice = Math.ceil(Math.max(...prices));
+
+    const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
+
+    // Atualiza priceRange se os valores mudarem (por exemplo, ao mudar o tipo de produto)
+    useEffect(() => {
+        setPriceRange([minPrice, maxPrice]);
+    }, [minPrice, maxPrice]);
 
     // Filtra os produtos por tipo e faixa de preço
     const filteredItems = optionsMenu.filter((item) => {
@@ -59,6 +65,24 @@ function MenuOptions () {
                     <div className='text-right'>
                         <CloseIcon onClick={toggleFilter} className='cursor-pointer hover:opacity-50 duration-500' />
                     </div>
+
+                    {/* Filtros ativados */}
+                    <div className="flex flex-col border-b border-black/20 pb-3">
+                        <h3 className="font-semibold text-gray-800 mb-2">Filtros aplicados</h3>
+
+                        <div className="flex flex-wrap gap-4 text-sm">
+                            {/* Filtro por tipo */}
+                            <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full border border-blue-300 shadow-sm">
+                                Tipo: <strong className="ml-1 capitalize">{selectedType}</strong>
+                            </span>
+
+                            {/* Filtro por preço */}
+                            <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full border border-green-300 shadow-sm">
+                                Preço: <strong className="ml-1">R$ {priceRange[0]}</strong> a <strong>R$ {priceRange[1]}</strong>
+                            </span>
+                        </div>
+                    </div>
+
 
                     {/* Filtros disponíveis */}
                     <div className='w-full max-h-96 overflow-y-auto overflow-x-hidden flex flex-col gap-1'>
@@ -96,10 +120,10 @@ function MenuOptions () {
                                     max={maxPrice}
                                     step={1}
                                     sx={{
-                                    color: '#b91c1c', // vermelho escuro (opcional)
-                                    '& .MuiSlider-thumb': {
+                                        color: '#b91c1c',
+                                        '& .MuiSlider-thumb': {
                                         borderRadius: '50%',
-                                    },
+                                        },
                                     }}
                                 />
                             </div>
@@ -109,6 +133,7 @@ function MenuOptions () {
                                 <span>R$ {priceRange[1]}</span>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -121,11 +146,11 @@ function MenuOptions () {
                 {filteredItems.map((option) => (
                     <div
                         key={option.id}
-                        className="flex items-center gap-4 bg-white rounded-xl shadow-md p-3 hover:opacity-50 duration-500 md:flex-col md:p-10 cursor-pointer"
+                        className="flex items-center gap-4 bg-white rounded-xl shadow-md p-3 hover:opacity-50 hover:scale-105 duration-500 md:flex-col md:p-10 cursor-pointer"
                         onClick={() => setSelectedItem(option)}
                     >
                         {/* Imagem */}
-                        <div className="w-20 h-20 flex-shrink-0">
+                        <div className="w-20 h-20 flex-shrink-0 md:w-full">
                             <img
                             src={option.image}
                             alt={option.name}
@@ -139,7 +164,7 @@ function MenuOptions () {
                             {option.name}
                             </span>
                             <span className="text-sm text-gray-600 mt-1 lg:text-lg">
-                            R$ {option.price}
+                                {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(option.price)}
                             </span>
                         </div>
                     </div>

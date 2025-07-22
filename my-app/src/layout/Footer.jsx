@@ -11,7 +11,7 @@ function Footer () {
                     {/* Contato */}
                     <div className="flex flex-col gap-2 md:flex-1/3">
                         <div className="border-l-2 border-red-500 pl-1">
-                            <h3>CONTATO</h3>
+                            <h3 className='font-medium'>CONTATO</h3>
                         </div>
                         
                         <div className='flex flex-col gap-1.5'>
@@ -42,7 +42,7 @@ function Footer () {
                     {/* Endereço */}
                     <div className="flex flex-col gap-2 md:flex-2/3">
                         <div className="border-l-2 border-red-500 pl-1">
-                            <h3>ENDEREÇO</h3>
+                            <h3 className='font-medium'>ENDEREÇO</h3>
                         </div>
 
                         <div>

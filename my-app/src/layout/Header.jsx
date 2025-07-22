@@ -51,7 +51,7 @@ function Header () {
                             <p
                                 key={link.id}
                                 onClick={() => navigate(link.path)}
-                                className='cursor-pointer hover:text-orange-500 duration-500 transition-colors'
+                                className='font-medium cursor-pointer hover:text-orange-500 duration-500 transition-colors'
                             >
                                 {link.text}
                             </p>
