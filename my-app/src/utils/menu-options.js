@@ -1,45 +1,45 @@
-import pQueijo from '../assets/images/menu options/pastel-queijo.jpeg';
-import pCarne from '../assets/images/menu options/pastel-carne.jpeg';
-import heineken from '../assets/images/menu options/heineken.jpeg';
-import coca from '../assets/images/menu options/coca-cola.jpeg';
+import pQueijo from "../assets/images/menu options/pastel-queijo.jpeg";
+import pCarne from "../assets/images/menu options/pastel-carne.jpeg";
+import heineken from "../assets/images/menu options/heineken.jpeg";
+import coca from "../assets/images/menu options/coca-cola.jpeg";
 
 export const optionsMenu = [
   {
     id: 1,
-    name: 'Pastel de queijo',
-    price: 8.00,
-    type: 'pastel',
+    name: "Pastel de queijo",
+    price: 8.0,
+    type: "pastel",
     image: pQueijo,
-    description: 'Pastel crocante recheado com queijo muçarela.',
-    ingredients: ['Queijo muçarela', 'Massa de pastel', 'Óleo para fritura']
+    description: "Pastel crocante recheado com queijo muçarela.",
+    ingredients: ["Queijo muçarela", "Massa de pastel", "Óleo para fritura"],
   },
   {
     id: 2,
-    name: 'Pastel de carne',
-    price: 8.00,
-    type: 'pastel',
+    name: "Pastel de carne",
+    price: 8.0,
+    type: "pastel",
     image: pCarne,
-    description: 'Pastel crocante recheado com carne moída temperada.',
-    ingredients: ['Carne moída', 'Cebola', 'Temperos', 'Massa de pastel']
+    description: "Pastel crocante recheado com carne moída temperada.",
+    ingredients: ["Carne moída", "Cebola", "Temperos", "Massa de pastel"],
   },
   {
     id: 3,
-    name: 'Heineken',
-    price: 10.00,
-    type: 'bebida',
+    name: "Heineken",
+    price: 10.0,
+    type: "bebida",
     image: heineken,
-    description: 'Cerveja Heineken long neck, puro malte.',
-    volume: '330ml',
-    alcoholic: true
+    description: "Cerveja Heineken long neck, puro malte.",
+    volume: "330ml",
+    alcoholic: true,
   },
   {
     id: 4,
-    name: 'Coca-cola',
-    price: 6.50,
-    type: 'bebida',
+    name: "Coca-cola",
+    price: 6.5,
+    type: "bebida",
     image: coca,
-    description: 'Refrigerante Coca-cola gelado.',
-    volume: '350ml',
-    alcoholic: false
-  }
+    description: "Refrigerante Coca-cola gelado.",
+    volume: "350ml",
+    alcoholic: false,
+  },
 ];
