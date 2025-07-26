@@ -31,6 +31,9 @@ Em desenvolvimento. Interface e funcionalidades principais em andamento.
 #### Cardápio
 ![Preview do cardápio](./image/menu.png)
 
+#### Sobre
+![Preview do sobre](./image/about.png)
+
 ## Como Rodar Localmente
 
 ```bash

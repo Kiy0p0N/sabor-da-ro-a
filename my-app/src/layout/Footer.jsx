@@ -5,9 +5,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 function Footer() {
   return (
     <footer>
+
       {/* Informações adicionais */}
       <div className="flex w-full justify-center bg-orange-900 py-6 text-white">
         <div className="flex w-full flex-col gap-8 px-3 md:w-5/6 md:flex-row">
+        
           {/* Contato */}
           <div className="flex flex-col gap-2 md:flex-1/3">
             <div className="border-l-2 border-red-500 pl-1">

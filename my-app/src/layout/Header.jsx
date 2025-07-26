@@ -38,6 +38,7 @@ function Header() {
       {/* Header */}
       <header className="my-2 flex h-auto w-full items-center border-y-1 border-black/20 px-3 py-2 md:justify-center md:px-0">
         <div className="flex w-full items-center md:w-5/6">
+        
           {/* Logo */}
           <div className="flex-1/2">
             <div
