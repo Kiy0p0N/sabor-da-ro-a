@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Logo from "../assets/images/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -7,38 +8,19 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 import { pagePath } from "../utils/page-path";
 
-import "../style/App.css";
-
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false); // controla a animação (aberto/fechado)
-  const [isVisible, setIsVisible] = useState(false); // controla se o menu está visível no DOM
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Função para abrir o menu
-  const openMenu = () => {
-    setIsVisible(true); // mostra o menu no DOM
-    setMenuOpen(true); // ativa a animação de abertura
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // Função para fechar o menu com atraso para permitir a animação
-  const closeMenu = () => {
-    setMenuOpen(false); // ativa a animação de fechamento
-    setTimeout(() => {
-      setIsVisible(false); // remove do DOM após a animação terminar
-    }, 600); // mesmo tempo da duração da animação hideUp
-  };
-
-  // Alterna o estado do menu ao clicar no ícone
-  const toggleMenu = () => {
-    menuOpen ? closeMenu() : openMenu();
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
       {/* Header */}
-      <header className="my-2 flex h-auto w-full items-center border-y-1 border-black/20 px-3 py-2 md:justify-center md:px-0">
+      <header className="my-2 flex h-auto w-full items-center border-y border-black/20 px-3 py-2 md:justify-center md:px-0">
         <div className="flex w-full items-center md:w-5/6">
-        
           {/* Logo */}
           <div className="flex-1/2">
             <div
@@ -52,7 +34,7 @@ function Header() {
             </div>
           </div>
 
-          {/* Botões de navagação */}
+          {/* Navegação desktop */}
           <div className="hidden w-3xs justify-between md:flex">
             {pagePath.map((link) => (
               <p
@@ -65,7 +47,7 @@ function Header() {
             ))}
           </div>
 
-          {/* Botão do menu */}
+          {/* Botão menu mobile */}
           <div className="flex flex-1/2 justify-end md:hidden">
             <div
               className="w-fit cursor-pointer hover:opacity-50"
@@ -77,27 +59,36 @@ function Header() {
         </div>
       </header>
 
-      {/* Menu visível com animação de abrir/fechar */}
-      {isVisible && (
-        <div
-          className={`absolute z-50 h-auto w-full bg-white pb-1 shadow-lg ${menuOpen ? "animate-reveal-down" : "animate-hide-up"}`}
-        >
-          {pagePath.map((link) => (
-            <div
-              key={link.id}
-              onClick={() => {
-                navigate(link.path); // navega para o link
-                closeMenu(); // fecha o menu com animação
-              }}
-              className="border-b border-black/10 p-3"
-            >
-              <p className="cursor-pointer font-medium transition-colors duration-500 hover:text-orange-500">
-                {link.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
+      {/* Menu mobile animado */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute z-50 w-full overflow-hidden bg-white pb-1 shadow-lg"
+          >
+            {pagePath.map((link, index) => (
+              <motion.div
+                key={link.id}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index }}
+                onClick={() => {
+                  navigate(link.path);
+                  closeMenu();
+                }}
+                className="border-b border-black/10 p-3"
+              >
+                <p className="cursor-pointer font-medium transition-colors duration-500 hover:text-orange-500">
+                  {link.text}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

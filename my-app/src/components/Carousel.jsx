@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-/**
- * Componente reutilizável de carrossel
- * Props:
- * - items: array de objetos com { id, image, text }
- */
 function Carousel({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Alterna o índice da imagem a cada 5 segundos
+  const navigate = useNavigate();
+
+  // Alterna o índice da imagem a cada 6 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -16,27 +15,38 @@ function Carousel({ items }) {
       );
     }, 6000);
 
-    return () => clearInterval(interval); // Limpa o intervalo ao desmontar
+    return () => clearInterval(interval);
   }, [items.length]);
 
   return (
-    <div className="relative my-2 h-64 w-full overflow-hidden shadow-lg md:h-[70dvh] md:rounded-lg">
-      {/* Imagem de fundo com transição suave */}
+    <div
+      onClick={() => navigate("/cardapio")}
+      className="relative my-2 h-64 w-full overflow-hidden shadow-lg md:h-[70dvh] md:rounded-lg"
+    >
+      {/* Imagem de fundo com transição suave + efeito de zoom */}
       {items.map((item, index) => (
-        <img
+        <motion.img
           key={item.id}
           src={item.image}
           alt={item.text}
-          className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
+          initial={{ opacity: 0, scale: 1 }}
+          animate={
+            index === currentIndex
+              ? { opacity: 1, scale: 1.05 } // aproxima levemente
+              : { opacity: 0, scale: 1 } // reseta ao sair
+          }
+          transition={{
+            opacity: { duration: 1 }, // fade suave
+            scale: { duration: 6, ease: "easeOut" }, // zoom ao longo dos 6s
+          }}
+          className="absolute top-0 left-0 h-full w-full object-cover"
         />
       ))}
 
       {/* Texto sobre a imagem */}
-      <div className="absolute top-0 left-0 flex h-full w-full items-end justify-center p-4">
-        <div className="bg-opacity-80 max-w-lg rounded-md bg-white p-4 text-center text-black shadow-md">
-          <p className="text-lg font-semibold md:text-2xl">
+      <div className="absolute top-0 left-0 flex h-full w-full items-end justify-center">
+        <div className="rounded-md p-4 text-center text-white">
+          <p className="text-3xl font-bold text-shadow-lg text-shadow-orange-400 md:text-2xl lg:text-5xl">
             {items[currentIndex].text}
           </p>
         </div>

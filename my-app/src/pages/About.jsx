@@ -6,19 +6,19 @@ function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-white px-4 py-10">
+    <div className="flex min-h-dvh w-full flex-col items-center bg-white py-2 pb-8">
       {/* Título */}
-      <h1 className="mb-6 text-center text-3xl font-bold text-orange-800 md:text-4xl">
+      <h1 className="mb-6 text-center text-3xl font-bold text-orange-800 md:mb-0 md:text-4xl">
         Sobre o Empório Sabor da Roça
       </h1>
 
       {/* Container principal */}
-      <div className="grid max-w-5xl grid-cols-1 items-center gap-8 md:grid-cols-2">
+      <div className="grid w-full grid-cols-1 items-center gap-8 px-3 md:w-5/6 md:grid-cols-2 md:px-0">
         {/* Imagem */}
         <img
           src={BarImage}
           alt="Frente do bar"
-          className="h-full w-full rounded-xl object-cover shadow-lg"
+          className="h-full w-full rounded-xl object-cover shadow-lg md:h-4/6"
         />
 
         {/* Texto */}
@@ -52,11 +52,11 @@ function About() {
       </div>
 
       {/* Diferenciais */}
-      <div className="mt-10 w-full max-w-4xl">
+      <div className="mt-10 w-full max-w-4xl md:mt-0">
         <h2 className="mb-4 text-center text-2xl font-semibold text-orange-900">
           Por que visitar o Empório?
         </h2>
-        <ul className="grid grid-cols-1 gap-4 text-center text-gray-700 md:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 px-3 text-center text-gray-700 md:grid-cols-3 md:px-0">
           <li className="flex items-center justify-center rounded-lg bg-orange-50 p-4 shadow-sm">
             🍻 Ambiente acolhedor e familiar
           </li>

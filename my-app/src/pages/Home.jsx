@@ -29,11 +29,15 @@ function Home() {
               </span>
             </h1>
 
-            <div className="h-[1px] w-full bg-black" />
+            {/* Linha estilizada */}
+            <div className="relative my-6">
+              <div className="h-[2px] w-full rounded-full bg-gradient-to-r from-orange-800 via-black to-orange-800" />
+            </div>
 
+            {/* Texto */}
             <div className="mt-8 flex flex-col gap-4">
               {apresentationText.map((paragraph) => (
-                <p className="text-gray-600" key={paragraph.id}>
+                <p className="leading-relaxed text-gray-600" key={paragraph.id}>
                   {paragraph.text}
                 </p>
               ))}
@@ -45,13 +49,17 @@ function Home() {
             <img
               src={Cerveja}
               alt="Cervejinha gelada"
-              className="h-auto rounded-lg"
+              className="h-auto rounded-lg shadow-lg shadow-orange-200"
             />
           </div>
 
           {/* Botão */}
           <div className="col-start-2 col-end-3 row-start-2 row-end-3">
-            <Button onClick={() => navigate("/cardapio")} text="SAIBA MAIS" />
+            <Button
+              onClick={() => navigate("/cardapio")}
+              text="SAIBA MAIS"
+              className="transition-transform duration-300 hover:scale-105"
+            />
           </div>
         </div>
       </div>

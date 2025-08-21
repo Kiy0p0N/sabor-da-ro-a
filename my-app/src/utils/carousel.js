@@ -6,16 +6,16 @@ export const carousel = [
   {
     id: 1,
     image: Hamburguer,
-    text: "O MAIS SABOROSO DO CAMINHO",
+    text: "O MAIS SABOROSO",
   },
   {
     id: 2,
     image: Pastel,
-    text: "O MELHOR PASTEL DA REGIÃO",
+    text: "O MELHOR DA REGIÃO",
   },
   {
     id: 3,
     image: Cerveja,
-    text: "VENHA BEBER UMA CERVEJA CONOSCO",
+    text: "VENHA BEBER CONOSCO",
   },
 ];

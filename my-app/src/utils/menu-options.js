@@ -5,7 +5,6 @@ import coca from "../assets/images/menu options/coca-cola.jpeg";
 
 export const optionsMenu = [
   {
-    id: 1,
     name: "Pastel de queijo",
     price: 8.0,
     type: "pastel",
@@ -14,7 +13,6 @@ export const optionsMenu = [
     ingredients: ["Queijo muçarela", "Massa de pastel", "Óleo para fritura"],
   },
   {
-    id: 2,
     name: "Pastel de carne",
     price: 8.0,
     type: "pastel",
@@ -23,7 +21,6 @@ export const optionsMenu = [
     ingredients: ["Carne moída", "Cebola", "Temperos", "Massa de pastel"],
   },
   {
-    id: 3,
     name: "Heineken",
     price: 10.0,
     type: "bebida",
@@ -33,7 +30,6 @@ export const optionsMenu = [
     alcoholic: true,
   },
   {
-    id: 4,
     name: "Coca-cola",
     price: 6.5,
     type: "bebida",
