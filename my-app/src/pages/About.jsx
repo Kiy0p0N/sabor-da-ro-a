@@ -43,11 +43,6 @@ function About() {
             une tradição, boa comida e histórias que só a vida no interior pode
             proporcionar.
           </p>
-
-          {/* Botão para o cardápio */}
-          <div className="mt-2">
-            <Button text="CARDÁPIO" onClick={() => navigate("/cardapio")} />
-          </div>
         </div>
       </div>
 

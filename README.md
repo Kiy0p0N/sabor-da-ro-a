@@ -21,18 +21,17 @@ Em desenvolvimento. Interface e funcionalidades principais em andamento.
 * TailwindCSS
 * Vite
 * JavaScript
+* Framer-motion (animações)
 * Figma (referência visual)
 
-## Imagem de Apresentação
+## Gifs de apresentação
 
-#### Tela inicial
-![Preview da página inicial](./image/home.png)
+### Desktop
+![Desktop](./image/desktop.gif)
 
-#### Cardápio
-![Preview do cardápio](./image/menu.png)
+### Mobile
+![Mobile](./image/mobile.gif)
 
-#### Sobre
-![Preview do sobre](./image/about.png)
 
 ## Como Rodar Localmente
 
